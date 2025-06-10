@@ -1,0 +1,22 @@
+{
+    "event": {
+        "id": "175",
+        "title": "KAREN SOUZA",
+        "subtitle": "Essentials",
+        "image": "/assets/img/sample-image.jpg"
+    },
+    "sessions": [
+        {
+            "date": "1442354400000",
+            "availability": "4"
+        },
+        {
+            "date": "1442959200000",
+            "availability": "6"
+        },
+        {
+            "date": "1443564000000",
+            "availability": "2"
+        }
+    ]
+}

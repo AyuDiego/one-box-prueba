@@ -1,0 +1,50 @@
+<div class="event-detail">
+  <div class="event-detail__topbar">
+    <a [routerLink]="['/']" class="event-detail__back">Volver</a>
+  </div>
+  <div class="event-detail__container">
+    <div class="event-detail__sessions">
+      @if (error()) {
+      <div class="event-detail__notfound">{{ error() }}</div>
+      } @else if (eventInfo()) {
+      <h2 class="event-detail__title">{{ eventInfo()?.title }}</h2>
+      <div class="event-detail__session-list">
+        @for (session of sortedSessions(); track session.sessionId) {
+        <div class="event-detail__session">
+          <span class="event-detail__session-date">
+            Fecha: {{ session.date | date:'dd/MM/yyyy' }}, Disponibilidad: {{
+            session.availability }}
+          </span>
+          <div class="event-detail__session-controls">
+            <button
+              type="button"
+              class="event-detail__session-btn"
+              (click)="decrement(session)"
+              [disabled]="selected(session.sessionId) === 0"
+            >
+              -
+            </button>
+            <span class="event-detail__session-selected"
+              >{{ selected(session.sessionId) }}</span
+            >
+            <button
+              type="button"
+              class="event-detail__session-btn"
+              (click)="increment(session)"
+              [disabled]="selected(session.sessionId) >= session.availability"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        }
+      </div>
+      } @else {
+      <div class="event-detail__notfound">EVENT INFO NOT FOUND</div>
+      }
+    </div>
+    <div class="event-detail__cart">
+      <app-shopping-cart></app-shopping-cart>
+    </div>
+  </div>
+</div>
