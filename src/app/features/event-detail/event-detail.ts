@@ -15,27 +15,28 @@ interface Session {
   selector: 'app-event-detail',
   imports: [CommonModule, ShoppingCart, RouterModule],
   templateUrl: './event-detail.html',
-  styleUrl: './event-detail.scss'
+  styleUrl: './event-detail.scss',
 })
 export class EventDetail {
-   private route = inject(ActivatedRoute);
+  private route = inject(ActivatedRoute);
   private eventService = inject(EventService);
   private cartService = inject(CartService);
   private eventInfoService = inject(EventInfoService);
 
   readonly eventId = signal<string | null>(null);
   readonly eventInfo = computed(() =>
-    this.eventService.events().find(e => e.id === this.eventId())
+    this.eventService.events().find((e) => e.id === this.eventId())
   );
   readonly error = computed(() => this.eventInfoService.error());
-readonly sessions = computed(() => this.eventInfoService.sessions());
+  readonly sessions = computed(() => this.eventInfoService.sessions());
   readonly sortedSessions = computed(() =>
-    this.sessions().slice().sort((a, b) => +a.date - +b.date)
+    this.sessions()
+      .slice()
+      .sort((a, b) => +a.date - +b.date)
   );
 
-  
- constructor() {
-    this.route.paramMap.subscribe(params => {
+  constructor() {
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       this.eventId.set(id);
       if (id) {
@@ -44,13 +45,17 @@ readonly sessions = computed(() => this.eventInfoService.sessions());
     });
   }
 
- selected(sessionId: string) {
+  selected(sessionId: string) {
     return this.cartService.getSelectedForSession(this.eventId()!, sessionId);
   }
 
   increment(session: Session) {
     if (this.selected(session.sessionId) < session.availability) {
-      this.cartService.addToCart(this.eventId()!, this.eventInfo()?.title ?? '', session);
+      this.cartService.addToCart(
+        this.eventId()!,
+        this.eventInfo()?.title ?? '',
+        session
+      );
     }
   }
 
