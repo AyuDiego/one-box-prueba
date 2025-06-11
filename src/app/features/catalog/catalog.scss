@@ -61,7 +61,7 @@
     &-dates {
       padding: 0.5rem;
       font-size: 0.97rem;
-      color: #222;
+      color: var.$secondary-color;
     }
 
     &-description {
@@ -128,4 +128,7 @@
   .catalog__card {
     min-height: unset;
   }
+    .catalog__grid {
+      padding: 1rem;
+    }
 }

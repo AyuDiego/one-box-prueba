@@ -1,32 +1,37 @@
 <section class="shopping-cart">
   @if (cartItems().length > 0) {
-    <div class="shopping-cart__list">
-      @for (event of cartItems(); track event.eventId) {
-        <div class="shopping-cart__event">
-          <div class="shopping-cart__event-title">{{ event.eventTitle }}</div>
-          <div class="shopping-cart__sessions">
-            @for (session of event.sessions; track session.sessionId) {
-              <div class="shopping-cart__session">
-                <div class="shopping-cart__session-info">
-                  <span class="shopping-cart__session-date">
-                    {{ session.date | date:'dd/MM/yyyy' }}
-                  </span>
-                </div>
-                <div class="shopping-cart__session-actions">
-                  <span class="shopping-cart__session-qty">x{{ session.selected }}</span>
-                  <button type="button"
-                          class="shopping-cart__session-trash"
-                          (click)="removeFromCart(event.eventId, session.sessionId)">
-                    <img src="/assets/img/trash.png" alt="Eliminar" />
-                  </button>
-                </div>
-              </div>
-            }
+  <div class="shopping-cart__list">
+    @for (event of cartItems(); track event.eventId) {
+    <div class="shopping-cart__event">
+      <div class="shopping-cart__event-title">{{ event.eventTitle }}</div>
+      <div class="shopping-cart__sessions">
+        @for (session of event.sessions; track session.sessionId) {
+        <div class="shopping-cart__session">
+          <div class="shopping-cart__session-info">
+            <span class="shopping-cart__session-date">
+              {{ session.date | date:'dd/MM/yyyy' }}
+            </span>
+          </div>
+          <div class="shopping-cart__session-actions">
+            <span class="shopping-cart__session-qty"
+              >x{{ session.selected }}</span
+            >
+            <button
+              type="button"
+              class="shopping-cart__session-trash"
+              (click)="removeFromCart(event.eventId, session.sessionId)"
+              aria-label="Eliminar una localidad de la sesión"
+            >
+              <img src="/assets/img/trash.png" alt="Eliminar" />
+            </button>
           </div>
         </div>
-      }
+        }
+      </div>
     </div>
+    }
+  </div>
   } @else {
-    <div class="shopping-cart__empty">No hay localidades seleccionadas.</div>
+  <div class="shopping-cart__empty">No hay localidades seleccionadas.</div>
   }
 </section>

@@ -1,16 +1,16 @@
+@use "../../../../styles/variables" as var;
 .shopping-cart {
   &__list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
- 
 
   &__event-title {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 0.5rem;
-    color: #222;
+    color: var.$secondary-color;
     letter-spacing: 0.5px;
   }
 
@@ -51,8 +51,7 @@
 
   &__session-qty {
     font-size: 1rem;
-    color: #222;
-    font-weight: 400;
+    color: var.$secondary-color;
     margin-right: 0.5rem;
     min-width: 2.5rem;
     text-align: right;

@@ -1,9 +1,18 @@
+
+// Color variables
 $primary-color: #0086b3;
 $secondary-color: #222;
 $accent-color: #e6f7ff;
 $danger-color: #b00;
+$bg-header: #95d2ee;
 
-$font-main: 'Roboto', Arial, sans-serif;
+// Font variables
+$font-main: 'Inter', Arial, sans-serif;
 
 $border-radius: 8px;
 $container-max-width: 1100px;
+
+//breakpoints
+$breakpoint-sm: 767px;    
+$breakpoint-md: 900px;   
+$breakpoint-lg: 1200px;   

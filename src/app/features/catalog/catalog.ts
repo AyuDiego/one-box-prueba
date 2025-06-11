@@ -17,9 +17,5 @@ export class Catalog {
   constructor(private eventService: EventService) {
     this.events = this.eventService.events;
     this.hasEvents = computed(() => this.events().length > 0);
-
-    effect(() => {
-      console.log('Eventos:', this.events());
-    });
   }
 }
