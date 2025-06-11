@@ -30,7 +30,7 @@ Este proyecto es una solución para el ejercicio técnico de un **sistema de res
 
 ## Arquitectura y tecnologías
 
-- **Angular** 16+ con programación reactiva (`signals`, `computed`)
+- **Angular** 20 con programación reactiva (`signals`, `computed`)
 - **Routing** con `@angular/router`
 - **HTTPClient** para simular peticiones a servidor usando ficheros JSON mock
 - **Componentes desacoplados y reutilizables** (por ejemplo, el carrito)
